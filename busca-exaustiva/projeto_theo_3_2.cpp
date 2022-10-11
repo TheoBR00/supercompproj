@@ -72,6 +72,10 @@ vector<graph> recursao(vector<graph> p, vector<graph> way, long long int &num_fo
         if(p.size() == 0){
             num_folhas++;
             // std::cerr << "num_leaf " << setw(3) << setfill('0') << num_folhas << endl;
+            for(int t = 0; t < way.size(); t++){
+                //std::cout << way[t].id; 
+            }
+            //std::cout << endl;
             return way;
         }
 
@@ -204,10 +208,12 @@ int main(){
         p.push_back(g);
     }    
 
+    way.push_back(p[0]);
+
+    p.erase(p.begin() + 0);
+
     vector<graph> res = recursao(p, way, folha);
     float di = calcula(res);
-
-    std::cerr << "num_leafs " << folha << endl;
 
     std::cout << di << " " << 1 << endl;
 
@@ -216,5 +222,5 @@ int main(){
     }
     std::cout << endl;
 
-    
+    std::cerr << "num_leaf " << folha << endl;
 }
